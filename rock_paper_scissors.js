@@ -39,7 +39,7 @@ const errorMessage = () => {
 const playRound = () => {
     const userChoice = prompt("Choose rock, paper, or scissors.").toLowerCase().trim();
     const computerChoice = computerPlay();
-    let message = '', wins=0;
+    let message = '', wins=0, ties=0;
     if(userChoice!=="rock" && userChoice!=="scissors" && userChoice!=="paper") {
         // User entered invalid input. Prompt to try again.
         errorMessage();
@@ -52,25 +52,28 @@ const playRound = () => {
             (userChoice==="paper" && computerChoice==="rock")) {
             message += ` You win, ${userChoice} beats ${computerChoice}!`;
             wins = 1;
+        } else if(userChoice===computerChoice) {
+            message += ` We tied, you and I. We both chose ${computerChoice}. Great minds think alike, I guess!`;
+            ties = 1;
         } else {
             message += ` You lose, ${computerChoice} beats ${userChoice}. So sad!`;
             wins = 0;
         }
     }
-    return { message, wins };
+    return { message, wins, ties };
 }
 
 const playGame = () => {
     alert("Let's play a game. Best out of 5 rounds will be declared the ultimate winner. Let's go, human.")
-    let userScore=0;
+    let userScore=0, numTies=0;
     for(let i=0; i<5; i++) {
-        const { message, wins } = playRound();
+        const { message, wins, ties } = playRound();
         console.log(message);
-        console.log(wins);
         userScore += wins;
+        numTies += ties;
     }
-    const computerScore = 5 - userScore;
-    let result = `You won ${userScore} rounds and the computer won ${computerScore} rounds.`
+    const computerScore = 5 - userScore - numTies;
+    let result = `You won ${userScore} rounds and the computer won ${computerScore} rounds. There were ${numTies} tied rounds.`
     if(userScore>computerScore) {
         result += ` You rock (no pun intended)! You totally beat the computer. I don't know how this happened. Please refresh the page and let me have a rematch. I am sure I can beat you.`;
     } else if(userScore<computerScore) {
