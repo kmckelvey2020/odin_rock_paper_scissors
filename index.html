@@ -4,16 +4,64 @@
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <meta http-equiv='X-UA-Compatible' content='ie-edge'>
-        <title>Title</title>
+        <title>Rock, Paper, Scissors</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap" rel="stylesheet">
         <link rel='stylesheet' href='styles.css'>
     </head>
     <body>
         <header>
+            <div class="dark"></div>
+            <div class="linear-rainbow"><h1>Computer versus Human</h1></div>
+            <div class="dark"><p class="typewriter">Wanna play a game?</p></div>  
         </header>
         <main>
-            <script src="./rock_paper_scissors.js"></script>
+            <div class="main-container">
+                <div class="score-container">
+                    <div class="score-group">
+                        <div class="score-content">
+                            <h3>Computer: </h3><h3><div class="score comp" id="compScore">0</div></h3>
+                        </div>
+                    </div>
+                    <div class="score-group">
+                        <div class="score-content">
+                            <h3>Human: </h3><h3><div class="score human" id="humanScore">0</div></h3>
+                        </div>
+                    </div>
+                    <div class="score-group">
+                        <div class="score-content">
+                            <h3>Ties: </h3><h3><div class="score ties" id="tieScore">0</div></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="message" id="message">Let's go, human!</div>
+                <div class="button-group">
+                    <button class="rps_btn" id="rock" name="rock" value="rock">Rock</button>
+                    <button class="rps_btn" id="paper" name="paper" value="paper">Paper</button>
+                    <button class="rps_btn" id="scissors" name="scissors" value="scissors">Scissors</button>
+                </div>
+                <div class="fun">
+                    <span class="bubble a"></span>
+                    <span class="bubble b"></span>
+                    <span class="bubble c"></span>
+                    <span class="bubble d"></span>
+                    <span class="bubble e"></span>
+                    <span class="bubble f"></span>
+                    <span class="bubble g"></span>
+                    <span class="bubble h"></span>
+                    <span class="bubble i"></span>
+                    <span class="bubble j"></span>
+                </div>
+            </div>
         </main>
         <footer>
+            <div class="footer-content">
+                <p class="rights">All rights reserved | 867-5309 | emailaddress@buycoolstuff.fakeemail</p> 
+                <p class="social">FaceBook | Twitter | Instagram</p>
+                <p class="credit">Website: 2022 Kristan McKelvey</p>
+            </div>
         </footer>
     </body>
+    <script src="./rock_paper_scissors.js"></script>
 </html>

@@ -14,10 +14,6 @@ const computerPlay = () => {
             console.log(`Error: ${rand} is not a valid computer option.`);
     }
 }
-// Testing computerPlay
-/*for(let i=0; i<100; i++){
-    computerPlay();
-}*/
 
 const errorMessage = () => {
     const rand = Math.floor(Math.random() * 3) + 1;
@@ -36,7 +32,7 @@ const errorMessage = () => {
     }
 }
 
-const playRound = () => {
+const playRoundPrompt = () => {
     const userChoice = prompt("Choose rock, paper, or scissors.").toLowerCase().trim();
     const computerChoice = computerPlay();
     let message = '', wins=0, ties=0;
@@ -67,7 +63,7 @@ const playGame = () => {
     alert("Let's play a game. Best out of 5 rounds will be declared the ultimate winner. Let's go, human.")
     let userScore=0, numTies=0;
     for(let i=0; i<5; i++) {
-        const { message, wins, ties } = playRound();
+        const { message, wins, ties } = playRoundPrompt();
         console.log(message);
         userScore += wins;
         numTies += ties;
@@ -85,4 +81,32 @@ const playGame = () => {
     alert(result);
 }
 
-playGame();
+const playRound = (e) => {
+    const userChoice = e.target.value;
+    const computerChoice = computerPlay();
+    let message = document.getElementById('message');
+    let compScore = document.getElementById('compScore');
+    let humanScore = document.getElementById('humanScore');
+    let tieScore = document.getElementById('tieScore');
+
+    message.innerHTML = `You chose ${userChoice} and the computer chose ${computerChoice}.`;
+    if((userChoice==="rock" && computerChoice==="scissors") ||
+        (userChoice==="scissors" && computerChoice==="paper") ||
+        (userChoice==="paper" && computerChoice==="rock")) {
+        message.innerHTML += ` You win, ${userChoice} beats ${computerChoice}!`;
+        humanScore.innerHTML = `${Number(humanScore.innerHTML) + 1}`;
+    } else if(userChoice===computerChoice) {
+        message.innerHTML += ` We tied, you and I. We both chose ${computerChoice}. Great minds think alike, I guess!`;
+        tieScore.innerHTML = `${Number(tieScore.innerHTML) + 1}`;
+    } else {
+        message.innerHTML += ` You lose, ${computerChoice} beats ${userChoice}. So sad!`;
+        compScore.innerHTML = `${Number(compScore.innerHTML) + 1}`;
+    }
+
+
+}
+
+const userButtons = document.querySelectorAll('button');
+userButtons.forEach((btn) => {
+    btn.addEventListener('click', playRound);
+})

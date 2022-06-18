@@ -1,0 +1,323 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body, :root, button {
+    font-size: 18px;
+    font-family: 'Source Code Pro', monospace;
+    --main-bg-color: rgba(0, 0, 0, 1);;
+    --accent-color: rgba(200, 200, 245, 0.75);
+    --accent-bg-color: rgba(245, 245, 245, 1);;
+    --red: rgba(255, 0, 0, 0.75);
+    --orange: rgba(255, 150, 0, 0.75);
+    --yellow: rgba(255, 255, 0, 0.75);
+    --green: rgba(0, 255, 0, 0.75);
+    --aqua: rgba(0, 225, 255, 0.75);
+    --blue: rgba(0, 0, 255, 0.75);
+    --indigo: rgba(150, 0, 255, 0.75);
+    --pink: rgba(255, 0, 150, 0.75);
+    --gradient: var(--red), var(--orange), var(--yellow), var(--green), var(--aqua), var(--blue), var(--indigo), var(--pink);
+    --gradient45: linear-gradient(45deg, var(--gradient));
+    --gradient210: linear-gradient(210deg, var(--gradient));
+    --gradientToLeft: linear-gradient(to left, var(--gradient), var(--gradient), var(--gradient));
+    --typewriterSpeed: 10s;
+    --typewriterCharacters: 18;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100%;
+}
+
+body, header, footer, main {
+    text-align: center;
+    width: 100%;
+}
+
+header {
+    min-height: min(20vh, 20rem);
+}
+
+main {
+    min-height: min(70vh, 55rem);
+}
+
+footer {
+    min-height: min(10vh, 10rem);
+}
+
+.header-group, header .dark, header .reverse-rainbow, .score-container, .button-group {
+    align-items: center;
+}
+
+.header-group, header .dark, header .reverse-rainbow, main, .score-container, .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0rem auto;
+    padding: 0rem auto;
+}
+
+.dark {
+    background-color: black;
+    min-height: 5vh;
+}
+
+h1, h2, h3, h4, h5 {
+    text-align: center;
+    margin: 0rem 0rem;
+    padding: 0rem 0rem;
+}
+
+h1 {
+    background-color: rgba(230, 235, 235, 0.3);
+    backdrop-filter: blur(1rem);
+    border-radius: 15rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.25rem rgba(100, 100, 100, .5);
+    color: black;
+    font-size: min(10vw, 3rem);
+    margin: 0rem 20%;
+    padding: min(5vh, 2rem) 1rem;
+} 
+
+h2 {
+    font-size: min(8vw, 2.75rem);
+}
+
+h3 {
+    font-size: min(7vw, 2.5rem);
+}
+
+h4 {
+    font-size: min(6vw, 2.25rem);
+}
+
+h5 {
+    font-size: min(5vw, 2rem);
+}
+
+.typewriter {
+    background-color: black;
+    color: white;
+    font-size: min(8vw, 2.5rem);
+    margin: 0rem auto;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    position: relative;
+    width: max-content;
+}
+
+.typewriter::before,
+.typewriter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.typewriter::before {
+    background: black;
+    animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+.typewriter::after {
+    width: 0.125rem;
+    background: white;
+    animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
+        blink 556ms steps(var(--typewriterCharacters)) infinite;
+}
+
+.main-container {
+    padding: 0rem 0rem;
+    margin: 0rem min(25rem, 10%);
+    width: 100%;
+}
+
+.message {
+    font-size: min(7vw, 2.25rem);
+    margin: 0rem auto;
+    padding: 0rem 0rem;
+    min-height: min(30vh, 20rem);
+}
+
+.score-container {
+    gap: min(5vw, 2rem);
+    padding: 0rem 0rem;
+    margin: 1rem auto;
+}
+
+.score-group {
+    background-image: var(--gradient45);
+    flex: 1;
+    padding: 1rem;
+}
+
+.score-content {
+    background-color: black;
+    border: 0.1rem solid black;  
+    color: white; 
+    padding: 0.5rem 0.5rem;
+}
+
+.button-group {
+    background-image: var(--gradient210);
+    background-size: 300%;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.25rem var(--aqua);
+    gap: min(2vw, 1rem);
+    margin: 1rem auto;
+    padding: 1rem;
+    animation: bg-animation 20s infinite alternate;
+}
+
+.rps_btn {
+    background-position: left;
+    border: 0.1rem solid var(--pink);
+    border-radius: 0.2rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.25rem var(--pink);
+    cursor: pointer;
+    display: inline-block;
+    flex: 1;
+    font-size: min(7vw, 2rem);
+    gap: 0.25rem;
+    margin: 0rem auto;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+.rps_btn:hover,
+.rps_btn:focus {
+    background-color: rgba(230, 235, 235, 0.5);
+    backdrop-filter: blur(1rem);
+}
+
+.linear-rainbow {
+    background-image: var(--gradientToLeft);
+}
+
+.bubble {
+    width: min(10vw, 9rem);
+    height: min(10vw, 9rem);
+    border: 1px solid rgba(100, 100, 100, .25);
+    box-shadow: inset 0.25rem -0.25rem 0.5rem rgba(100, 100, 100, .5);
+    border-radius: 50%;
+    background-color: rgba(100, 100, 100, .01);
+    backdrop-filter: blur(2px);
+    position: absolute;
+    bottom: -5rem;
+    z-index: -1;
+}
+
+.bubble::before {
+    position: absolute;
+    content: "";
+    background-color: rgba(200, 200, 200, .3);
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 50%;
+    top: min(2vw, 2rem);
+    right: min(2vw, 2rem);
+    box-shadow: 0rem 0rem 0.5rem 0.25rem rgba(200, 200, 200, .3);
+    z-index: -1;
+}
+
+.bubble.a {
+    left: 0%;
+    animation: bubbles 7s ease-in infinite;
+}
+
+.bubble.b {
+    left: 30%;
+    animation: bubbles 10s ease-in infinite;
+}
+
+.bubble.c {
+    left: 90%;
+    animation: bubbles 5s ease-in 0.5s infinite;
+}
+
+.bubble.d {
+    left: 45%;
+    animation: bubbles 5s ease-in infinite;
+}
+
+.bubble.e {
+    left: 85%;
+    animation: bubbles 8.5s ease-in 1s infinite;
+}
+
+.bubble.f {
+    left: 60%;
+    animation: bubbles 6s ease-in 2s infinite;
+}
+
+.bubble.g {
+    left: 50%;
+    animation: bubbles 10s ease-in 0.5s infinite;
+}
+
+.bubble.h {
+    left: 25%;
+    animation: bubbles 6s ease-in 1.5s infinite;
+}
+
+.bubble.i {
+    left: 5%;
+    animation: bubbles 8s ease-in 2.5s infinite;
+}
+
+.bubble.j {
+    left: 15%;
+    animation: bubbles 6s ease-in 2s infinite;
+}
+
+footer {
+    background-color: black;
+    margin: 0rem 0rem;
+    padding: 0.5rem 0.5rem;
+}
+
+footer p {
+    color: white;
+    font-size: 0.75rem;
+    overflow-wrap: break-word;
+    padding: 0rem 0.5rem;
+}
+
+.rights, .social, .credit {
+    overflow-wrap: break-word !important;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+@keyframes typewriter {
+    to { 
+        left: 100%;
+    }
+}
+
+@keyframes blink {
+    to {
+        background: transparent;
+    }
+}
+
+@keyframes bubbles {
+    0% {
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0rem, -35rem);
+        display: none;
+    }
+}
